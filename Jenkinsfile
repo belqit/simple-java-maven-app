@@ -26,5 +26,19 @@ pipeline {
                 sh './jenkins/scripts/deliver.sh'
             }
         }
+        // stage('Publish on Nexus as latest') {
+        //     // If the build not failed in any stage (including the sub-builds triggered in the Functional tests) the latest war will be deployed on nexus.
+        //     when {
+        //         expression { currentBuild.currentResult == 'SUCCESS' }
+        //     }
+        //     steps {
+        //         dir('development') {
+        //             script {
+        //                 sh 'mvn -B deploy -DskipTests -Dpmd.skip=true'
+        //                 sh 'mvn -B deploy -DskipTests -Dpmd.skip=true -Dapp.version=latest'
+        //             }
+        //         }
+        //     }
+        // }
     }
 }
